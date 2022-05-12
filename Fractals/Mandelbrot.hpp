@@ -18,7 +18,7 @@ public:
     
     static int GetIterations(double x, double y);
     
-    static const int MAX_ITER = 1000;
+    static const int MAX_ITER = 2000;
     
 };
 #endif /* Mandelbrot_hpp */

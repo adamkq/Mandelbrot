@@ -12,6 +12,7 @@
 		E6C75B142828D9F200B7F125 /* Mandelbrot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B122828D9F200B7F125 /* Mandelbrot.cpp */; };
 		E6C75B1A282C825E00B7F125 /* ZoomList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B18282C825E00B7F125 /* ZoomList.cpp */; };
 		E6C75B1D282D808C00B7F125 /* FractalCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */; };
+		E6C75B20282D91AE00B7F125 /* RGB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B1E282D91AE00B7F125 /* RGB.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		E6C75B19282C825E00B7F125 /* ZoomList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomList.h; sourceTree = "<group>"; };
 		E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FractalCreator.cpp; sourceTree = "<group>"; };
 		E6C75B1C282D808C00B7F125 /* FractalCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FractalCreator.h; sourceTree = "<group>"; };
+		E6C75B1E282D91AE00B7F125 /* RGB.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RGB.cpp; sourceTree = "<group>"; };
+		E6C75B1F282D91AE00B7F125 /* RGB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGB.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				E6C75B19282C825E00B7F125 /* ZoomList.h */,
 				E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */,
 				E6C75B1C282D808C00B7F125 /* FractalCreator.h */,
+				E6C75B1E282D91AE00B7F125 /* RGB.cpp */,
+				E6C75B1F282D91AE00B7F125 /* RGB.h */,
 			);
 			path = Fractals;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				E6C75B1D282D808C00B7F125 /* FractalCreator.cpp in Sources */,
 				E6C75B142828D9F200B7F125 /* Mandelbrot.cpp in Sources */,
 				E6C75B112820F67B00B7F125 /* Bitmap.cpp in Sources */,
+				E6C75B20282D91AE00B7F125 /* RGB.cpp in Sources */,
 				E6C75B1A282C825E00B7F125 /* ZoomList.cpp in Sources */,
 				E6438E0B280E8581003C1320 /* main.cpp in Sources */,
 			);

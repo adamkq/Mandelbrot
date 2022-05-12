@@ -11,12 +11,15 @@
 #include <stdio.h>
 #include <string>
 #include <cstdint>
+#include <vector>
 #include <math.h>
 #include <memory>
+
 #include "Bitmap.hpp"
 #include "Mandelbrot.hpp"
 #include "Zoom.h"
 #include "ZoomList.h"
+#include "RGB.h"
 
 using namespace std;
 
@@ -32,14 +35,22 @@ private:
     
     unique_ptr<int[]> histogram;
     unique_ptr<int[]> frac;
+    
+    vector<int> m_ranges; // number of iterations
+    vector<int> m_rangeTotals;
+    vector<RGB> m_colors;
+    
 public:
     FractalCreator(int width, int height);
     virtual ~FractalCreator();
     
-    void calculateIteration();
+    void calculateIterations();
+    void reportStats();
     void draw();
+    void addRange(double rangeEnd, const RGB& rgb);
     void addZoom(const Zoom& zoom);
     void writeBitmap(string name);
+    int getRange(int iterations) const;
 };
 
 #endif /* FractalCreator_hpp */

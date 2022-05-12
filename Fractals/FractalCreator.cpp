@@ -5,7 +5,10 @@
 //  Created by Adam Kilbourne on 5/12/22.
 //
 
+#include <iostream>
 #include "FractalCreator.h"
+
+using namespace std;
 
 FractalCreator::FractalCreator(int width, int height):
     m_width(width),
@@ -23,7 +26,7 @@ FractalCreator::~FractalCreator()
     
 }
 
-void FractalCreator::calculateIteration()
+void FractalCreator::calculateIterations()
 {
     for(int yy = 0; yy < m_height; yy++)
     {
@@ -42,13 +45,36 @@ void FractalCreator::calculateIteration()
         }
     }
     
+    // Totals
     for(int i = 0; i < Mandelbrot::MAX_ITER; i++)
     {
         m_total += histogram[i];
     }
+    
+    int rangeIndex = 0;
+    for(int i=0; i < Mandelbrot::MAX_ITER; i++)
+    {
+        int pixels = histogram[i];
+        
+        if (i >= m_ranges[rangeIndex + 1])
+        {
+            rangeIndex++;
+        }
+        m_rangeTotals[rangeIndex] += pixels;
+    }
 }
 
-void FractalCreator::draw() { 
+void FractalCreator::reportStats()
+{
+    cout<<"Total Pixels: "<<m_total<<endl;
+    cout<<"Pixels for each range:"<<endl;
+    for(int value: m_rangeTotals)
+    {
+        cout<<value<<endl;
+    }
+}
+
+void FractalCreator::draw() {
     for(int yy = 0; yy < m_height; yy++)
     {
         for(int xx = 0; xx < m_width; xx++)
@@ -59,14 +85,27 @@ void FractalCreator::draw() {
             
             int iterations = frac[yy*m_width + xx];
             
-            double hue = 0.0;
+            int range = getRange(iterations);
+            int rangeTotal = m_rangeTotals[range];
+            int rangeStart = m_ranges[range];
             
-            for(int i = 0; i <= iterations; i++)
+            RGB& startColor = m_colors[range];
+            RGB& endColor = m_colors[range + 1];
+            RGB dColor = endColor - startColor;
+            
+            if (iterations != Mandelbrot::MAX_ITER)
             {
-                hue += ((double)histogram[i]/m_total);
+                int totalPixels = 0;
+                
+                for(int i = rangeStart; i <= iterations; i++)
+                {
+                    totalPixels += histogram[i];
+                }
+                
+                red = startColor.r + dColor.r*(double)totalPixels/rangeTotal;
+                green = startColor.g + dColor.g*(double)totalPixels/rangeTotal;
+                blue = startColor.b + dColor.b*(double)totalPixels/rangeTotal;
             }
-            
-            green = iterations == Mandelbrot::MAX_ITER ? 0 : pow(255, hue);
             
             m_bmp.setPixel(xx, yy, red, green, blue);
         }
@@ -80,3 +119,37 @@ void FractalCreator::addZoom(const Zoom &zoom) {
 void FractalCreator::writeBitmap(std::string name) { 
     m_bmp.write(name);
 }
+
+void FractalCreator::addRange(double rangeEnd, const RGB &rgb) { 
+    m_ranges.push_back(rangeEnd * Mandelbrot::MAX_ITER);
+    m_colors.push_back(rgb);
+    
+    if (m_ranges.size() > 1)
+    {
+        m_rangeTotals.push_back(0);
+    }
+}
+
+int FractalCreator::getRange(int iterations) const {
+    int range = 0;
+
+    for(int i=1; i < m_ranges.size(); i++) {
+
+        range = i;
+
+        if(m_ranges[i] > iterations) {
+            break;
+        }
+
+    }
+
+    range--;
+
+    assert(range > -1);
+    assert(range < m_ranges.size());
+
+    return range;
+}
+
+
+
