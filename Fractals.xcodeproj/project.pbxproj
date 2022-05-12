@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E6438E0B280E8581003C1320 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6438E0A280E8581003C1320 /* main.cpp */; };
+		E6C75B112820F67B00B7F125 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B0F2820F67A00B7F125 /* Bitmap.cpp */; };
+		E6C75B142828D9F200B7F125 /* Mandelbrot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B122828D9F200B7F125 /* Mandelbrot.cpp */; };
+		E6C75B1A282C825E00B7F125 /* ZoomList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B18282C825E00B7F125 /* ZoomList.cpp */; };
+		E6C75B1D282D808C00B7F125 /* FractalCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,17 @@
 /* Begin PBXFileReference section */
 		E6438E07280E8581003C1320 /* Fractals */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Fractals; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6438E0A280E8581003C1320 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E6C75B0D281E4A6300B7F125 /* BitmapFileHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitmapFileHeader.h; sourceTree = "<group>"; };
+		E6C75B0E281E514500B7F125 /* BitmapInfoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitmapInfoHeader.h; sourceTree = "<group>"; };
+		E6C75B0F2820F67A00B7F125 /* Bitmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		E6C75B102820F67A00B7F125 /* Bitmap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bitmap.hpp; sourceTree = "<group>"; };
+		E6C75B122828D9F200B7F125 /* Mandelbrot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mandelbrot.cpp; sourceTree = "<group>"; };
+		E6C75B132828D9F200B7F125 /* Mandelbrot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mandelbrot.hpp; sourceTree = "<group>"; };
+		E6C75B16282C7C5900B7F125 /* Zoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zoom.h; sourceTree = "<group>"; };
+		E6C75B18282C825E00B7F125 /* ZoomList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomList.cpp; sourceTree = "<group>"; };
+		E6C75B19282C825E00B7F125 /* ZoomList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomList.h; sourceTree = "<group>"; };
+		E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FractalCreator.cpp; sourceTree = "<group>"; };
+		E6C75B1C282D808C00B7F125 /* FractalCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FractalCreator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,17 @@
 			isa = PBXGroup;
 			children = (
 				E6438E0A280E8581003C1320 /* main.cpp */,
+				E6C75B0D281E4A6300B7F125 /* BitmapFileHeader.h */,
+				E6C75B0E281E514500B7F125 /* BitmapInfoHeader.h */,
+				E6C75B0F2820F67A00B7F125 /* Bitmap.cpp */,
+				E6C75B102820F67A00B7F125 /* Bitmap.hpp */,
+				E6C75B122828D9F200B7F125 /* Mandelbrot.cpp */,
+				E6C75B132828D9F200B7F125 /* Mandelbrot.hpp */,
+				E6C75B16282C7C5900B7F125 /* Zoom.h */,
+				E6C75B18282C825E00B7F125 /* ZoomList.cpp */,
+				E6C75B19282C825E00B7F125 /* ZoomList.h */,
+				E6C75B1B282D808C00B7F125 /* FractalCreator.cpp */,
+				E6C75B1C282D808C00B7F125 /* FractalCreator.h */,
 			);
 			path = Fractals;
 			sourceTree = "<group>";
@@ -119,6 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C75B1D282D808C00B7F125 /* FractalCreator.cpp in Sources */,
+				E6C75B142828D9F200B7F125 /* Mandelbrot.cpp in Sources */,
+				E6C75B112820F67B00B7F125 /* Bitmap.cpp in Sources */,
+				E6C75B1A282C825E00B7F125 /* ZoomList.cpp in Sources */,
 				E6438E0B280E8581003C1320 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
